@@ -1,0 +1,9 @@
+.footer{
+       color: #10bbb3;
+    background-color: rgba(0, 0, 0, 0.2);
+   height: 25px;
+ 
+}
+.icon{
+    cursor: pointer;
+}

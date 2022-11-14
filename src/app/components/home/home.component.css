@@ -1,0 +1,44 @@
+.item , .items{
+    width: 90%;
+    height: 150px;
+    border: solid 1px #10bbb3;
+    position: relative;
+}
+.img{
+    width: 100px;
+    border-radius: 70px;
+    position: absolute;
+    bottom:  85%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+    
+
+.coco{
+    position: absolute;
+    bottom:  20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+input , label {
+    cursor: pointer;
+}
+.alrt{
+    display: inline;
+    text-align: center;
+    width: 120px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.public , .private{
+    background-color: black;
+    padding: 5px;
+    color: white;
+}
+/* .private{
+    background-color: #770905;
+    padding: 5px;
+    color: white;
+} */

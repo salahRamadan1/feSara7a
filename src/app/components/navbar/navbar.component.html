@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg  shadow-lg  fixed-top ">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white "  > <i class="fa-regular fa-envelope me-3 iconNav"></i>Saraha</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold" routerLink="home" *ngIf="isLoggedIn"  >My message</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold" routerLink="options" *ngIf="isLoggedIn"  >Options</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold" routerLink="about"    >About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold"routerLink="contact"    >Contact with us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold"  (click)="logOut()"   *ngIf="isLoggedIn" >Log out</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold" routerLink="login" *ngIf="!isLoggedIn"  >Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-bold" routerLink="register" *ngIf=" ! isLoggedIn">Register</a>
+          </li>
+        </ul>
+     
+      </div>
+    </div>
+  </nav>

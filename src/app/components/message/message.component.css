@@ -1,0 +1,42 @@
+.items{
+    width: 70%;
+    height: 550px;
+    border: solid 1px #10bbb3;
+    position: relative;
+}
+.img{
+    width: 100px;
+    border-radius: 70px;
+    position: absolute;
+    bottom:  95%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.coco{
+    position: absolute;
+    bottom:  30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+textarea{
+     width: 400px;
+    height:  200px !important;
+}
+.alrt{
+    display: inline;
+    text-align: center;
+    width: 120px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.click{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+.item{
+    border: solid 1px #10bbb3;
+    position: relative;
+}

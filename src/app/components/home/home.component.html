@@ -1,0 +1,67 @@
+<section class=" mt-5 pt-5">
+  <div class=" container mt-5 pt-5">
+    <div class=" row justify-content-center">
+      <div class=" item">
+        <div class=" col-md-10  ">
+          <img src="../../../assets/img/images.png" class="  d-flex justify-content-center  img" alt="">
+          <div class=" coco">
+            <!--  user name -->
+            <h2 class=" ">{{ user.name |uppercase}}</h2>
+            <!-- share profile -->
+            <button class=" mx-auto d-flex justify-content-center btn btn-info" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"> Share Profile </button>
+          </div>
+        </div>
+      </div>
+      <!-- err -->
+      <div *ngIf="notFoundOrError">
+        <h3 class=" text-center mt-5">{{notFoundOrError}}</h3>
+      </div>
+      <!-- for loop message -->
+      <div *ngFor="let message of data" class=" items text-center pt-5 position-relative  mt-5">
+      
+        <div class=" col-md-12">
+          <h3>{{message.message }}</h3>
+          <p *ngIf="message.view" class=" public rounded-3 fw-bold fs-3 float-end"><i class="fa-regular fa-eye"></i></p>
+          <p *ngIf="!message.view" class=" private rounded-3 fw-bold fs-3 float-end"><i class="fa-regular fa-eye-slash"></i></p>
+
+          <div class=" clearfix"></div>
+        </div>
+        <div class=" position-absolute top-0  ">
+          <div class="dropdown">
+            <button class="btn btn-outline-primary mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!--  public message -->
+              <li><a class="dropdown-item" id="Public" (click)="getValueToPublic(message._id)" name="true">Public</a>
+              </li>
+              <!--  private message -->
+              <li><a class="dropdown-item" id="Private" (click)="getValueToPrivate(message._id)"
+                  name="false">Private</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ModalShare profile -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Share profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a [href]="URL +user.userId" target="_blank">{{URL +user.userId}}</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Share Profile</button>
+      </div>
+    </div>
+  </div>
+</div>

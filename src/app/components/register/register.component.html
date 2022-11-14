@@ -1,0 +1,59 @@
+<section class=" register mt-5 pt-5">
+    <div class=" container">
+        <div class=" row justify-content-center">
+            <div class=" col-md-10">
+                <div class=" mx-auto  item">
+
+                    <div *ngIf="err" class=" alert alert-danger">
+
+                        <h2 class=" text-center text-danger">{{err |uppercase}}</h2>
+                    </div>
+                    <form [formGroup]="RegisterForm" (ngSubmit)="register()">
+                        <div class="nameInput mb-2">
+                            <label for="name">NAME</label>
+                            <input formControlName="name"  type="text" class=" form-control">
+                            <div class=" err" *ngIf="RegisterForm.get('name')?.errors &&  RegisterForm.get('name')?.touched "> 
+                              <p *ngIf="RegisterForm.get('name')?.errors?.['required']" class=" text-danger fw-bold"> name is Required</p>
+                              <p *ngIf="RegisterForm.get('name')?.errors?.['minlength']" class=" text-danger fw-bold"> min length is 2  </p>
+                              <p *ngIf="RegisterForm.get('name')?.errors?.['maxlength']" class=" text-danger fw-bold"> max length is 15</p>
+                            </div>
+                        </div>
+                        <!-- *********** -->
+                        <div class="emailInput mb-2">
+                            <label for="email">EMAIL</label>
+                            <input formControlName="email" type="email" class=" form-control">
+                            <div class=" err" *ngIf="RegisterForm.get('email')?.errors &&  RegisterForm.get('email')?.touched "> 
+                                <p *ngIf="RegisterForm.get('email')?.errors?.['required']" class=" text-danger fw-bold"> email is Required</p>
+                                <p *ngIf="RegisterForm.get('name')?.errors?.['email']" class=" text-danger fw-bold">please enter correct email     </p>
+                              
+                              </div>
+                        </div>
+                        <!-- *********** -->
+                        <div class="passwordInput mb-2">
+                            <label for="password">PASSWORD</label>
+                            <input formControlName="password" type="password" class=" form-control">
+                            <div class=" err" *ngIf="RegisterForm.get('password')?.errors &&  RegisterForm.get('password')?.touched "> 
+                                <p *ngIf="RegisterForm.get('password')?.errors?.['required']" class=" text-danger fw-bold"> password is Required</p>
+                              </div>
+                        </div>
+                           <!-- *********** -->
+                           <div class="ageInput mb-2">
+                            <label for="age">AGE</label>
+                            <input formControlName="age" type="number" class=" form-control">
+                            <div class=" err" *ngIf="RegisterForm.get('age')?.errors &&  RegisterForm.get('age')?.touched "> 
+                                <p *ngIf="RegisterForm.get('age')?.errors?.['required']" class=" text-danger fw-bold"> age is Required</p>
+                                <p *ngIf="RegisterForm.get('age')?.errors?.['min']" class=" text-danger fw-bold"> min length is 16  </p>
+                                <p *ngIf="RegisterForm.get('age')?.errors?.['max']" class=" text-danger fw-bold"> max length is 80</p>
+                              </div>
+                        </div>
+                        <p class=" float-end"> <a routerLink="/login">already i have account</a></p>
+                        <div class=" clearfix"></div>
+                        <button type="submit" [disabled]="RegisterForm.invalid" class=" btn btn-info">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

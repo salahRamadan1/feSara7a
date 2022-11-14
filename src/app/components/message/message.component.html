@@ -1,0 +1,53 @@
+<section class=" mt-5 pt-5">
+    <div class="container  pt-5  ">
+        <div class=" row justify-content-center">
+            <div class=" items">
+                <img src="../../../assets/img/incognito-chrome1.jpg" class="  d-flex justify-content-center  img"
+                    alt="">              
+                <div class=" coco">
+                  <!--  name user  -->
+                    <h2 class=" text-center"> {{userName | uppercase}}</h2>
+                    <!-- form send message -->
+                    <form [formGroup]="formMessage" (ngSubmit)="sendMessage()">
+                        <textarea id="textarea" formControlName="message" class="  form-control-lg   fs-6 "
+                            placeholder=" you cannot send a saraha to yourself ,share your profile with  your friends"></textarea>                       
+                             <button type="submit" (click)="clear()"
+                            class=" mx-auto mt-2 d-flex justify-content-center btn btn-outline-info"> Send<i
+                                class=" ms-2 mt-1 fa-regular fa-paper-plane"></i> </button>
+
+                                <p class=" text-center  "> If you want to see the messages shared from <br>
+                                     <span class=" fw-bold">{{userName}}  </span><span class=" click" data-bs-toggle="modal" data-bs-target="#exampleModal">Click here</span>   </p>
+                    </form>
+                </div>
+            </div>
+            <!-- success message -->
+            <div  id="alert"*ngIf="successMessage"  class=" alrt alert alert-success">
+                <h3>{{successMessage}} </h3>
+            </div>
+        </div>
+    </div> 
+    <!-- model message public user  -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class=" row g-2">
+                <div *ngFor="let message of data" class=" item rounded-3">
+                <div class=" col-md-12">
+                        <h3 class=" py-2 text-center" >{{message.message}}</h3>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
